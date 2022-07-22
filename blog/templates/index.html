@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+   Home
+{% endblock title %}
+{% block body %}
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+<h1 class='text-black my-5 text-center'>Blog</h1>
+{% for post in posts %}
+<div class="jumbotron jumbotron-fluid text-center">
+   <div class="container">
+     <h1 class="display-4">{{post.title}}</h1>
+     <p class="lead">{{post.desc}}</p> 
+   </div>
+ </div>
+ {% endfor%}
+{% endblock body %}
